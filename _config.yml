@@ -39,8 +39,8 @@ baseurl: "/fmi_docs" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: fastdotai
-    github: fastai
+    twitter: _AVirdee
+    github: asvcode
 
 # Set this to true to get LaTeX math equation support
 use_math: 
@@ -77,7 +77,7 @@ default_badges:
 
 # Escape HTML in post descriptions
 html_escape:
-  description: false
+  description: true
 
 # Everything below here should be left alone. Modifications may break fastpages
 future: true
