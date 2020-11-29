@@ -22,6 +22,17 @@
         
     
   
+    
+        ,"post2": {
+            "title": "pipeline",
+            "content": ". I = (32-bit signed integer pixels) F = (32-bit floating point pixels) L = (8-bit pixels, black and white) . class PILWindow[source] . PILWindow() :: PILBase . Specify windows for use with DataBlocks . class LungWindow[source] . LungWindow() :: PILBase . This class represents an image object. To create :py:class:~PIL.Image.Image objects, use the appropriate factory functions. There&#39;s hardly ever any reason to call the Image constructor directly. . :py:func:~PIL.Image.open | :py:func:~PIL.Image.new | :py:func:~PIL.Image.frombytes | . class PEWindow[source] . PEWindow() :: PILBase . This class represents an image object. To create :py:class:~PIL.Image.Image objects, use the appropriate factory functions. There&#39;s hardly ever any reason to call the Image constructor directly. . :py:func:~PIL.Image.open | :py:func:~PIL.Image.new | :py:func:~PIL.Image.frombytes | .",
+            "url": "https://asvcode.github.io/fmi_docs/medical_imaging/dicom/fastai/2020/11/28/_11-28-pipeline.html",
+            "relUrl": "/medical_imaging/dicom/fastai/2020/11/28/_11-28-pipeline.html",
+            "date": " • Nov 28, 2020"
+        }
+        
+    
+  
 
   
   
