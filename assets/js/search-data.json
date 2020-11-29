@@ -40,7 +40,7 @@
   
       ,"page1": {
           "title": "fmi",
-          "content": "",
+          "content": "fmi . Additional functionality for fastai’s medical imaging module . . Install . via git clone https://github.com/asvcode/fmi.git | On kaggle: via the fmipackage dataset - simply add this dataset to your kernel | On Colab: via git clone | . Tutorials . Explore . . Tutorials on Kaggle . Instance Sort | . Preprocessing . . Tutorials on kaggle . Mask and Save . | Dicom Dataframe . | Dicom Splitter . | .",
           "url": "https://asvcode.github.io/fmi_docs/about/",
           "relUrl": "/about/",
           "date": ""
