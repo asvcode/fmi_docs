@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://asvcode.github.io/fmi_docs/medical_imaging/dicom/fastai/preprocessing/2020/11/27/preprocessing.html</loc>
-<lastmod>2020-11-27T00:00:00-06:00</lastmod>
+<loc>https://asvcode.github.io/fmi_docs/medical_imaging/dicom/fastai/pipeline/2020/11/26/pipeline.html</loc>
+<lastmod>2020-11-26T00:00:00-06:00</lastmod>
 </url>
 <url>
-<loc>https://asvcode.github.io/fmi_docs/medical_imaging/dicom/fastai/pipeline/2020/11/28/_11-28-pipeline.html</loc>
-<lastmod>2020-11-28T00:00:00-06:00</lastmod>
+<loc>https://asvcode.github.io/fmi_docs/medical_imaging/dicom/fastai/preprocessing/2020/11/27/preprocessing.html</loc>
+<lastmod>2020-11-27T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://asvcode.github.io/fmi_docs/medical_imaging/dicom/fastai/explore/2020/11/28/explore.html</loc>
