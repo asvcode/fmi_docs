@@ -78,7 +78,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -281,6 +281,24 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">instance_sort</span><span class="p">(</span><span class="n">folder</span><span class="p">:(</span><span class="n">Path</span><span class="p">,</span> <span class="n">L</span><span class="p">)):</span>
+    <span class="s2">"Helper to sort files by instance number"</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">Path</span><span class="p">):</span> <span class="n">folder</span> <span class="o">=</span> <span class="n">get_dicom_files</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span> <span class="n">folder</span> <span class="o">=</span> <span class="n">folder</span>
+    <span class="n">sorted_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">folder</span><span class="p">:</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="n">dcmread</span><span class="p">(</span><span class="n">file</span><span class="p">)[</span><span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x13</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">sorted_files</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">instance</span><span class="p">,</span> <span class="n">file</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">L</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">sorted_files</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 </div>
     
@@ -317,6 +335,19 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">instance_dcmread</span><span class="p">(</span><span class="n">folder</span><span class="p">:(</span><span class="n">L</span><span class="p">)):</span>
+    <span class="s2">"instance dcmread"</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="p">[</span><span class="n">dcmread</span><span class="p">(</span><span class="n">o</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">folder</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">file</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 </div>
     
@@ -353,6 +384,22 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">instance_show</span><span class="p">(</span><span class="n">folder</span><span class="p">:</span> <span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="s2">"Helper to display sorted files by instance number"</span>
+    <span class="n">f_list</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">t_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">instance_sort</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">TensorDicom</span><span class="p">(</span><span class="n">dcmread</span><span class="p">(</span><span class="n">file</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pixel_array</span><span class="p">)</span>
+        <span class="n">f_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">);</span> <span class="n">t_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">show_images</span><span class="p">(</span><span class="n">f_list</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="n">t_list</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 </div>
     
@@ -584,6 +631,26 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_dicom_image</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="s2">"Helper to view images by key"</span>
+    <span class="n">imgs</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">'PatientID'</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">'InstanceNumber'</span><span class="p">]</span><span class="si">}</span><span class="s2">.dcm"</span>
+        <span class="n">dcc</span> <span class="o">=</span> <span class="n">dcmread</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">pixel_array</span>
+        <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dcc</span><span class="p">)</span>
+        <span class="n">pct</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">title</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pct</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 </div>
     
