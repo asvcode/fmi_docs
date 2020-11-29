@@ -40,7 +40,7 @@ baseurl: "/fmi_docs" # the subpath of your site, e.g. "/blog".
 minima:
   social_links:
     twitter: _AVirdee
-    github: asvcode/fmi
+    github: asvcode
 
 # Set this to true to get LaTeX math equation support
 use_math: 
